@@ -1,7 +1,7 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.innovacion.TurneroClient" version="1.0.0">
-  <name>TurneroClient</name>
-  <description>Hello World sample application that responds to the deviceready event.</description>
-  <author href="http://phonegap.com" email="support@phonegap.com">PhoneGap Team</author>
+  <name>Turnos Tarjeta Sapem</name>
+  <description>Con esta aplicacion se podra visualizar que turno se esta atendiendo en este momento segun la sucursal seleccionada</description>
+  <author href="#" email="">Secretaria de Innovacion tecnologica</author>
   <content src="index.html"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="14"/>
@@ -28,12 +28,12 @@
   <plugin name="cordova-plugin-whitelist" source="npm"/>
   <icon src="icon.png"/>
   <platform name="android">
-    <icon src="www/res/icon/android/drawable-ldpi-icon.png" density="ldpi"/>
-    <icon src="www/res/icon/android/drawable-mdpi-icon.png" density="mdpi"/>
-    <icon src="www/res/icon/android/drawable-hdpi-icon.png" density="hdpi"/>
-    <icon src="www/res/icon/android/drawable-xhdpi-icon.png" density="xhdpi"/>
-    <icon src="www/res/icon/android/drawable-xxhdpi-icon.png" density="xxhdpi"/>
-    <icon src="www/res/icon/android/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
+    <icon src="www/res/icon/android/Sapem.png" density="ldpi"/>
+    <icon src="www/res/icon/android/Sapem.png" density="mdpi"/>
+    <icon src="www/res/icon/android/Sapem.png" density="hdpi"/>
+    <icon src="www/res/icon/android/Sapem.png" density="xhdpi"/>
+    <icon src="www/res/icon/android/Sapem.png" density="xxhdpi"/>
+    <icon src="www/res/icon/android/Sapem.png" density="xxxhdpi"/>
     <splash src="www/res/screen/android/drawable-land-ldpi-screen.png" density="land-ldpi"/>
     <splash src="www/res/screen/android/drawable-land-mdpi-screen.png" density="land-mdpi"/>
     <splash src="www/res/screen/android/drawable-land-hdpi-screen.png" density="land-hdpi"/>
