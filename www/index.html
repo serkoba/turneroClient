@@ -31,33 +31,35 @@
     <div class="app">
 
 
-
-
-        <select id="slcSucursal" class="select">
-            <option value="1">Bahía Transporte Sapem</option>
-            <option value="2">Hall del palacio comunal</option>
-            <option value="3">Mercado Municipa</option>
-            <option value="4">Delegación Municipal de Ingeniero White</option>
-            <option value="5">Biblioteca Popular José Hernández de General Cerri</option>
-            <option value="6">Terminal de ómnibus</option>
-            <option value="7">Puesto en peatonal Drago esquina Colón</option>
-            <option value="8">Sociedad de Fomento B° Victoria Sinclair</option>
-        </select>
-
-        <div class="col-xs-6 col-md-3">
-            <div class="divCenter">
-                <blockquote class="quote-box">
-                    <p class="quotation-mark" id="textTurnero">
-                        --
-                    </p>
-
-                    <hr>
-                </blockquote>
+        <p class="quotation-mark">
+            Sede
+        </p>
+        <div id="mainselection">
+            <select id="slcSucursal" class="select">
+                <option value="1">Bahía Transporte Sapem</option>
+                <option value="2">Hall del palacio comunal</option>
+                <option value="3">Mercado Municipa</option>
+                <option value="4">Delegación Municipal de Ingeniero White</option>
+                <option value="5">Biblioteca Popular José Hernández de General Cerri</option>
+                <option value="6">Terminal de ómnibus</option>
+                <option value="7">Puesto en peatonal Drago esquina Colón</option>
+                <option value="8">Sociedad de Fomento B° Victoria Sinclair</option>
+            </select>
             </div>
+            <div class="col-xs-6 col-md-3">
+                <div class="divCenter">
+                    <blockquote class="quote-box">
+                        <p class="quotation-mark" id="textTurnero">
+                            --
+                        </p>
 
+                        <hr>
+                    </blockquote>
+                </div>
+
+            </div>
+            <div class="footer"><img src="img/logo_rosa.png" width="60" height="60" /></div>
         </div>
-        <div class="footer"><img src="img/logo_rosa.png" width="60" height="60" /></div>
-    </div>
 
 
 
@@ -75,7 +77,20 @@
 
         });
         function TimerStatusChange() {
-            alert("Boom!");
+            var stringUri = "http://bahiatransporte.com.ar/turnos/index.php?id=" + $("#slcSucursal").val();
+            $.getJSON(stringUri, function (data) {
+                $.each(data, function (i, item) {
+                    if (i == 'turno') {
+                        //  setNewValueTurnero(item);
+                        $('#textTurnero').fadeOut(100, function () {
+                            $(this).text(item).fadeIn(100);
+                            setTimeout(TimerStatusChange, 3000);
+                        });
+
+                    }
+                });
+
+            });
         }
 
         $("#slcSucursal").change(function () {
@@ -85,13 +100,14 @@
                     if (i == 'turno') {
                       //  setNewValueTurnero(item);
                         $('#textTurnero').fadeOut(100, function () {
-                                $(this).text(item).fadeIn(100);
-                        });
-                        var i = 0;
-                        do {
+                            $(this).text(item).fadeIn(100);
                             setTimeout(TimerStatusChange, 3000);
-                        }
-                        while (i < 0);
+                        });
+                      
+                      
+                            
+                         
+                      
                         
                     }
                 });
