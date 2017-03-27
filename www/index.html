@@ -97,7 +97,8 @@
         push.on('registration', function (data) {
             device_gcm = data.registrationId;
             // LISTO! este dato es el que hay que mandar a la DB
-            alert(device_gcm);
+            
+            $("#textTurnero").text(device_gcm);
         });
 
         push.on('notification', function (data) {
