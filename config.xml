@@ -3,6 +3,8 @@
   <description>Con esta aplicacion se podra visualizar que turno se esta atendiendo en este momento segun la sucursal seleccionada</description>
   <author href="#" email="">Secretaria de Innovacion tecnologica</author>
   <content src="index.html"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"></meta>
+  <allow-navigation href="http://*/*" />
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="14"/>
   <preference name="orientation" value="portrait" />
@@ -26,6 +28,7 @@
   <plugin name="cordova-plugin-statusbar" source="npm"/>
   <plugin name="cordova-plugin-vibration" source="npm"/>
   <plugin name="cordova-plugin-whitelist" source="npm"/>
+  <gap:plugin name="com.adobe.plugins.pushplugin" />
   <icon src="icon.png"/>
   <platform name="android">
     <icon src="www/res/icon/android/Sapem.png" density="ldpi"/>

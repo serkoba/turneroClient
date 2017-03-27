@@ -7,6 +7,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://192.168.12.138:3000/" />
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
     <!-- Good default declaration:
@@ -25,12 +26,20 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/PushNotification.js"></script>
 </head>
 
 <body>
     <div class="app">
+        <div id="divInput">
 
 
+            <p class="quotation-mark">
+                Sede
+            </p>
+            <input type="number" id="txtNumber" />
+            <button type="button" id="btnSetNumber"></button>
+        </div>
         <p class="quotation-mark">
             Sede
         </p>
@@ -38,7 +47,7 @@
             <select id="slcSucursal" class="select">
                 <option value="1">Bahía Transporte Sapem</option>
                 <option value="2">Hall del palacio comunal</option>
-                <option value="3">Mercado Municipa</option>
+                <option value="3">Mercado Municipal</option>
                 <option value="4">Delegación Municipal de Ingeniero White</option>
                 <option value="5">Biblioteca Popular José Hernández de General Cerri</option>
                 <option value="6">Terminal de ómnibus</option>
@@ -67,22 +76,22 @@
     <script type="text/javascript">
         app.initialize();
 
-
+     
 
     </script>
     <script>
         $(function () {
 
-
+        
 
         });
        
 
-        $("#slcSucursal").change(function () {
-            ChangeNumberTurn($("#textTurnero"));
+        //$("#slcSucursal").change(function () {
+        //    ChangeNumberTurn($("#textTurnero"));
           
 
-        });
+        //});
 
         //$("#btnClickTurno").click(function () {
 

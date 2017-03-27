@@ -43,10 +43,46 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
         console.log('Received Event: ' + id);
+        
+        var pushNotification = window.plugins.pushNotification;
+        pushNotification.register(app.successHandler, app.errorHandler, { "senderID": "AIzaSyCr2a_B2wL8KfYxusSOuX06QaU5QUF20n0", "ecb": "com.innovacion.TurneroClient" });
+       
+
+        },
+    // result contains any message sent from the plugin call
+    successHandler: function(result) {
+        alert('Callback Success! Result = '+result)
+    },
+    errorHandler: function (result)
+    {
+        alert(error);
+    },
+    onNotificationGCM: function (e) {
+        switch (e.event) {
+            case 'registered':
+                if (e.regid.length > 0) {
+                    console.log("Regid " + e.regid);
+                    alert('registration id = ' + e.regid);
+                }
+                break;
+
+            case 'message':
+                // this is the actual push notification. its format depends on the data model from the push server
+                alert('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
+                break;
+
+            case 'error':
+                alert('GCM error = ' + e.msg);
+                break;
+
+            default:
+                alert('An unknown GCM event has occurred');
+                break;
+        }
     }
 };
+
 function TimerStatusChange(objText) {
     var stringUri = "http://bahiatransporte.com.ar/turnos/index.php?id=" + $("#slcSucursal").val();
     $.getJSON(stringUri, function (data) {
@@ -55,6 +91,7 @@ function TimerStatusChange(objText) {
                 //  setNewValueTurnero(item);
                 objText.fadeOut(100, function () {
                     objText.text(item).fadeIn(100);
+                   // CheckCurrentNumber($('#txtNumber'))
                     setTimeout(TimerStatusChange(objText), 5000);
                 });
 
@@ -84,4 +121,12 @@ function ChangeNumberTurn(objText)
         });
 
     });
+}
+function CheckCurrentNumber(objText)
+{
+    var MyNumber = objText.text();
+    var CurrentNumber = $('#textTurnero').text();
+    var difNumber= MyNumber-CurrentNumber;
+    if (difNumber <= 5)
+        alert('te faltan 5 nros para el tuyo');
 }
