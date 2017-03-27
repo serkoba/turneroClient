@@ -28,7 +28,11 @@
   <plugin name="cordova-plugin-statusbar" source="npm"/>
   <plugin name="cordova-plugin-vibration" source="npm"/>
   <plugin name="cordova-plugin-whitelist" source="npm"/>
-  <gap:plugin name="com.adobe.plugins.pushplugin" />
+  <gap:plugin name="com.adobe.plugins.pushplugin" source="npm" spec="~1.6.2">
+    <params>
+      <param name="SENDER_ID" value="79232579663" />
+    </params>
+  </gap:plugin>
   <icon src="icon.png"/>
   <platform name="android">
     <icon src="www/res/icon/android/Sapem.png" density="ldpi"/>
