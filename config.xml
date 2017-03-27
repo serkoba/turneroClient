@@ -28,7 +28,7 @@
   <plugin name="cordova-plugin-statusbar" source="npm"/>
   <plugin name="cordova-plugin-vibration" source="npm"/>
   <plugin name="cordova-plugin-whitelist" source="npm"/>
-  <gap:plugin name="com.adobe.phonegap.push.PushPlugin" source="github.com"  >
+  <gap:plugin name="com.adobe.phonegap.push.PushPlugin" source="cordova.apache.org"  >
     <params>
       <param name="SENDER_ID" value="79232579663" />
     </params>
