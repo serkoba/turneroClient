@@ -34,7 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-    },
+    /*},
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
@@ -79,7 +79,7 @@ var app = {
             default:
                 alert('An unknown GCM event has occurred');
                 break;
-        }
+        }*/
     }
 };
 
