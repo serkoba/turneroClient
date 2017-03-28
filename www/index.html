@@ -23,10 +23,11 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" src="css/bootstrap.min.css" type="text/css" />
     <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/PushNotification.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="push.js"></script>
+    
 </head>
 
 <body>
@@ -80,13 +81,16 @@
     <script type="text/javascript">
         //var deviceID = device.uuid;
 
+      
         // Push
     
             var push = PushNotification.init({
                 "android": {
                     "senderID": "60224550722"
                 },
-                "browser": {},
+                "browser": {
+                    pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+                },
                 "ios": {
                     "sound": true,
                     "vibration": true,
@@ -125,7 +129,7 @@
     </script>
 
     <script type="text/javascript">
-        app.initialize();
+     //   app.initialize();
 
      
 
