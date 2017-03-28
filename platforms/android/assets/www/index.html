@@ -34,12 +34,12 @@
     <div class="app">
         <div id="divInput">
 
-
+            <input type="hidden" id="gcm_id" />
             <p class="quotation-mark">
                 Sede
             </p>
             <input type="number" id="txtNumber" />
-            <button type="button" id="btnSetNumber"></button>
+            <button type="button" id="btnSetNumber">mandar nro</button>
         </div>
         <p class="quotation-mark">
             Sede
@@ -81,6 +81,38 @@
 
     <script type="text/javascript">
         app.initialize();
+    </script>
+    <script>
+      
+        $("#slcSucursal").change(function () {
+            ChangeNumberTurn($("#textTurnero"));
+
+
+        });
+
+        $("#btnSetNumber").click(function () {
+
+            var stringUri = "  http://bahiatransporte.com.ar/turnos/usuarios.php?gcm_id=" + $("#gcm_id").text() + "&id_punto_de_venta=" + $("#slcSucursal").val() + "&turno=" + $("#txtNumber").val();
+            console.log('enviando solicitud...');
+            $.getJSON(stringUri, function (data) {
+                debugger;
+                console.log(data);
+                $.each(data, function (i, item) {
+                    
+                    if (item == '-1') {
+                        alert('enviado');
+
+
+
+
+
+
+                    }
+                });
+
+            });
+        });
+     
     </script>
 </body>
 

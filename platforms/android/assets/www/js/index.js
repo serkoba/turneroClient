@@ -17,21 +17,12 @@
  * under the License.
  */
 var app = {
-        //Application Constructor
     initialize: function() {
         this.bindEvents();
     },
-    // Bind Event Listeners
-//    //
-//    // Bind any events that are required on startup. Common events are:
-//    // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
-//    // deviceready Event Handler
-//    //
-//    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-//    // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         console.log("___onDeviceReady___");
         var push = PushNotification.init({
@@ -51,10 +42,8 @@ var app = {
 
             push.on('registration', function (data) {
                 device_gcm = data.registrationId;
-                // LISTO! este dato es el que hay que mandar a la DB
-                console.log("SERGIO LA TENES ADENTRO!");
-                console.log(device_gcm);
-                $("#textTurnero").text(device_gcm);
+                $("#gcm_id").text(device_gcm);
+                
             });
 
             push.on('notification', function (data) {
@@ -62,6 +51,7 @@ var app = {
             });
     }
 }
+
 
 function TimerStatusChange(objText) {
     var stringUri = "http://bahiatransporte.com.ar/turnos/index.php?id=" + $("#slcSucursal").val();
@@ -80,6 +70,7 @@ function TimerStatusChange(objText) {
 
     });
 }
+
 function ChangeNumberTurn(objText)
 {
     var stringUri = "http://bahiatransporte.com.ar/turnos/index.php?id=" + $("#slcSucursal").val();

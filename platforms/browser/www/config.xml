@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.innovacion.TurneroClient" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <feature name="Camera">
+        <param name="browser-package" value="Camera" />
+    </feature>
+    <feature name="Device">
+        <param name="browser-package" value="Device" />
+    </feature>
+    <name>Turnos Tarjeta Sapem</name>
+    <description>Con esta aplicacion se podra visualizar que turno se esta atendiendo en este momento segun la sucursal seleccionada</description>
+    <content src="index.html" />
+    <meta content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'" http-equiv="Content-Security-Policy" />
+    <gap:plugin name="phonegap-plugin-push" source="npm">
+        <params>
+            <param name="SENDER_ID" value="60224550722" />
+        </params>
+    </gap:plugin>
+    <icon src="icon.png" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-navigation href="http://*/*" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="orientation" value="portrait" />
+</widget>
