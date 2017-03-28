@@ -46,13 +46,26 @@ var app = {
                 
             });
 
+       
             push.on('notification', function (data) {
-                var llego = true;
+                console.log('notification event');
+                navigator.notification.alert(
+                        data.message,         // message
+                        null,                 // callback
+                        data.title,           // title
+                        'Ok'                  // buttonName
+                );
             });
     }
 }
 
-
+function LoadData()
+{
+    var turno = localStorage.getItem('turno') || '<empty>';
+    var sucursal = localStorage.getItem('sucursal') || '<empty>';
+    $("#slcSucursal").val(sucursal);
+    $("#txtNumber").val(turno);
+}
 function TimerStatusChange(objText) {
     var stringUri = "http://bahiatransporte.com.ar/turnos/index.php?id=" + $("#slcSucursal").val();
     $.getJSON(stringUri, function (data) {

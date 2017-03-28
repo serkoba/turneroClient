@@ -347,8 +347,7 @@ h1 {
    background: #4ADFCC url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
 }
 .form-control {
-    display: block;
-    width: 100%;
+    width: 100px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -401,7 +400,7 @@ h1 {
     .btn {
     display: inline-block;
     padding: 6px 12px;
-    margin-bottom: 0;
+    margin-bottom: 6px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.42857143;
@@ -422,8 +421,12 @@ h1 {
     .btn-default {
     color: #333;
     background-color: #fff;
-    border-color: #ccc;
+    border-color: rgba(1,151,171,1);
 }
 .DivTurno {
-
+    padding-top: 20px;
+		display: inline-block;
+        width:350px;
+    overflow:auto;
+    margin-left:-69px;
 }

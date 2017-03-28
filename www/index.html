@@ -35,7 +35,7 @@
     <div class="app">
         <input type="hidden" id="gcm_id" />
         <div class="DivTurno">
-            <input type="number" class="form-control" id="txtNumber" placeholder="Username" aria-describedby="basic-addon1">
+            <input type="number" class="form-control" id="txtNumber" placeholder="Turno" aria-describedby="basic-addon1">
             <button class="btn btn-default" type="button" id="btnSetNumber">Enviar turno</button>
         </div>
         <p class="quotation-mark">
@@ -72,6 +72,7 @@
 
     <script type="text/javascript">
         app.initialize();
+        LoadData();
     </script>
     <script>
       
@@ -84,6 +85,7 @@
         $("#btnSetNumber").click(function () {
 
             var stringUri = "  http://bahiatransporte.com.ar/turnos/usuarios.php?gcm_id=" + $("#gcm_id").text() + "&id_punto_de_venta=" + $("#slcSucursal").val() + "&turno=" + $("#txtNumber").val();
+            console.log('enviando solicitud...');
             $.getJSON(stringUri, function (data) {
                 $.each(data, function (i, item) {
                     
@@ -96,9 +98,16 @@
 
 
                     }
-                });
+                })
 
-            });
+            }).done(function () { alert('getJSON request succeeded!'); })
+.fail(function (jqXHR, textStatus, errorThrown) { console.log(errorThrown); })
+.always(function () {
+    localStorage.setItem("turno", $("#txtNumber").val());
+    localStorage.setItem("sucursal", $("#slcSucursal").val());
+    
+
+});
         });
      
     </script>
