@@ -93,7 +93,23 @@ function ChangeNumberTurn(objText)
                 //  setNewValueTurnero(item);
                 objText.fadeOut(100, function () {
                     objText.text(item).fadeIn(100);
-                    setTimeout(TimerStatusChange(objText), 5000);
+                    setInterval(function () {
+                        var stringUri = "http://bahiatransporte.com.ar/turnos/index.php?id=" + $("#slcSucursal").val();
+                        $.getJSON(stringUri, function (data) {
+                            $.each(data, function (i, item) {
+                                if (i == 'turno') {
+                                    //  setNewValueTurnero(item);
+                                    $("#textTurnero").fadeOut(100, function () {
+                                        $("#textTurnero").text(item).fadeIn(100);
+                                        // CheckCurrentNumber($('#txtNumber'))
+                                    });
+
+                                }
+                            });
+
+                        });
+                    }
+                     , 5000);
                 });
 
 
