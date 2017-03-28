@@ -26,7 +26,7 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="PushNotification.js"></script>
+    <script type="text/javascript" src="push.js"></script>
 </head>
 
 <body>
@@ -81,29 +81,30 @@
         //var deviceID = device.uuid;
 
         // Push
-        var push = PushNotification.init({
-            "android": {
-                "senderID": "60224550722"
-            },
-            "browser": {},
-            "ios": {
-                "sound": true,
-                "vibration": true,
-                "badge": true
-            },
-            "windows": {}
-        });
+    
+            var push = PushNotification.init({
+                "android": {
+                    "senderID": "60224550722"
+                },
+                "browser": {},
+                "ios": {
+                    "sound": true,
+                    "vibration": true,
+                    "badge": true
+                },
+                "windows": {}
+            });
 
-        push.on('registration', function (data) {
-            device_gcm = data.registrationId;
-            // LISTO! este dato es el que hay que mandar a la DB
-            
-            $("#textTurnero").text(device_gcm);
-        });
+            push.on('registration', function (data) {
+                device_gcm = data.registrationId;
+                // LISTO! este dato es el que hay que mandar a la DB
 
-        push.on('notification', function (data) {
-            var llego = true;
-        });
+                $("#textTurnero").text(device_gcm);
+            });
+
+            push.on('notification', function (data) {
+                var llego = true;
+            });
             /* No se llega a ejectura*/
             //alert(JSON.stringify(data));
             /*var datos = {
@@ -119,6 +120,7 @@
             localStorage.setItem(data.additionalData.id, JSON.stringify(datos));
             document.location.href = 'mensajes.html?id='+data.additionalData.id;
             */
+        
 
     </script>
 
