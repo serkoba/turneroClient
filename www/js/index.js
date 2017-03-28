@@ -17,75 +17,40 @@
  * under the License.
  */
 var app = {
-    // Application Constructor
-    initialize: function () {
+    initialize: function() {
         this.bindEvents();
     },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function () {
+    bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function () {
-        console.log('Received Device Ready Event');
-        console.log('calling setup push');
-        app.setupPush();
-    },
-    setupPush: function () {
-        console.log('calling push init');
+    onDeviceReady: function() {
+        console.log("___onDeviceReady___");
         var push = PushNotification.init({
-            "android": {
-                "senderID": "60224550722"
-            },
-            "browser": {},
-            "ios": {
-                "sound": true,
-                "vibration": true,
-                "badge": true
-            },
-            "windows": {}
-        });
-        console.log('after init');
+                "android": {
+                    "senderID": "60224550722"
+                },
+                "browser": {
+                    pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+                },
+                "ios": {
+                    "sound": true,
+                    "vibration": true,
+                    "badge": true
+                },
+                "windows": {}
+            });
 
-        push.on('registration', function (data) {
-            console.log('registration event: ' + data.registrationId);
+            push.on('registration', function (data) {
+                device_gcm = data.registrationId;
+                $("#textTurnero").text(device_gcm);
+                
+            });
 
-            var oldRegId = localStorage.getItem('registrationId');
-            if (oldRegId !== data.registrationId) {
-                // Save new registration ID
-                localStorage.setItem('registrationId', data.registrationId);
-                // Post registrationId to your app server as the value has changed
-            }
-
-            var parentElement = document.getElementById('registration');
-            var listeningElement = parentElement.querySelector('.waiting');
-            var receivedElement = parentElement.querySelector('.received');
-
-            listeningElement.setAttribute('style', 'display:none;');
-            receivedElement.setAttribute('style', 'display:block;');
-        });
-
-        push.on('error', function (e) {
-            console.log("push error = " + e.message);
-        });
-
-        push.on('notification', function (data) {
-            console.log('notification event');
-            navigator.notification.alert(
-                data.message,         // message
-                null,                 // callback
-                data.title,           // title
-                'Ok'                  // buttonName
-            );
-        });
+            push.on('notification', function (data) {
+                var llego = true;
+            });
     }
-};
+}
 
 function TimerStatusChange(objText) {
     var stringUri = "http://bahiatransporte.com.ar/turnos/index.php?id=" + $("#slcSucursal").val();
@@ -104,6 +69,7 @@ function TimerStatusChange(objText) {
 
     });
 }
+
 function ChangeNumberTurn(objText)
 {
     var stringUri = "http://bahiatransporte.com.ar/turnos/index.php?id=" + $("#slcSucursal").val();

@@ -1,0 +1,83 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        }
+    },
+    "dependent_plugins": {
+        "phonegap-plugin-push": {
+            "SENDER_ID": "85075801930",
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.innovacion.TurneroClient"
+        }
+    }
+}

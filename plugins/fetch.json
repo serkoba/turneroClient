@@ -2,7 +2,7 @@
     "com.phonegap.plugins.PushPlugin": {
         "source": {
             "type": "git",
-            "url": "https://github.com/phonegap-build/PushPlugin.git",
+            "url": "https://github.com/phonegap-build/PushPlugin",
             "subdir": "."
         },
         "is_top_level": true,
@@ -175,15 +175,5 @@
         },
         "is_top_level": true,
         "variables": {}
-    },
-    "phonegap-plugin-push": {
-        "source": {
-            "type": "registry",
-            "id": "phonegap-plugin-push@1.10.0"
-        },
-        "is_top_level": true,
-        "variables": {
-            "SENDER_ID": "60224550722"
-        }
     }
 }
