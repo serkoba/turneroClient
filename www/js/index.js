@@ -16,72 +16,76 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-//var app = {
-//    // Application Constructor
-//    initialize: function() {
-//        this.bindEvents();
-//    },
-//    // Bind Event Listeners
-//    //
-//    // Bind any events that are required on startup. Common events are:
-//    // 'load', 'deviceready', 'offline', and 'online'.
-//    bindEvents: function() {
-//        document.addEventListener('deviceready', this.onDeviceReady, false);
-//    },
-//    // deviceready Event Handler
-//    //
-//    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-//    // function, we must explicitly call 'app.receivedEvent(...);'
-//    onDeviceReady: function() {
-//        app.receivedEvent('deviceready');
-//    /*},
-//    // Update DOM on a Received Event
-//    receivedEvent: function(id) {
-//        var parentElement = document.getElementById(id);
-//        var listeningElement = parentElement.querySelector('.listening');
-//        var receivedElement = parentElement.querySelector('.received');
+var app = {
+    // Application Constructor
+    initialize: function () {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function () {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function () {
+        console.log('Received Device Ready Event');
+        console.log('calling setup push');
+        app.setupPush();
+    },
+    setupPush: function () {
+        console.log('calling push init');
+        var push = PushNotification.init({
+            "android": {
+                "senderID": "60224550722"
+            },
+            "browser": {},
+            "ios": {
+                "sound": true,
+                "vibration": true,
+                "badge": true
+            },
+            "windows": {}
+        });
+        console.log('after init');
 
-//        listeningElement.setAttribute('style', 'display:none;');
-//        receivedElement.setAttribute('style', 'display:block;');
-//        console.log('Received Event: ' + id);
-        
-//        var pushNotification = window.plugins.pushNotification;
-//        pushNotification.register(app.successHandler, app.errorHandler, { "senderID": "AIzaSyCr2a_B2wL8KfYxusSOuX06QaU5QUF20n0", "ecb": "com.innovacion.TurneroClient" });
-       
+        push.on('registration', function (data) {
+            console.log('registration event: ' + data.registrationId);
 
-//        },
-//    // result contains any message sent from the plugin call
-//    successHandler: function(result) {
-//        alert('Callback Success! Result = '+result)
-//    },
-//    errorHandler: function (result)
-//    {
-//        alert(error);
-//    },
-//    onNotificationGCM: function (e) {
-//        switch (e.event) {
-//            case 'registered':
-//                if (e.regid.length > 0) {
-//                    console.log("Regid " + e.regid);
-//                    alert('registration id = ' + e.regid);
-//                }
-//                break;
+            var oldRegId = localStorage.getItem('registrationId');
+            if (oldRegId !== data.registrationId) {
+                // Save new registration ID
+                localStorage.setItem('registrationId', data.registrationId);
+                // Post registrationId to your app server as the value has changed
+            }
 
-//            case 'message':
-//                // this is the actual push notification. its format depends on the data model from the push server
-//                alert('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
-//                break;
+            var parentElement = document.getElementById('registration');
+            var listeningElement = parentElement.querySelector('.waiting');
+            var receivedElement = parentElement.querySelector('.received');
 
-//            case 'error':
-//                alert('GCM error = ' + e.msg);
-//                break;
+            listeningElement.setAttribute('style', 'display:none;');
+            receivedElement.setAttribute('style', 'display:block;');
+        });
 
-//            default:
-//                alert('An unknown GCM event has occurred');
-//                break;
-//        }*/
-//    }
-//};
+        push.on('error', function (e) {
+            console.log("push error = " + e.message);
+        });
+
+        push.on('notification', function (data) {
+            console.log('notification event');
+            navigator.notification.alert(
+                data.message,         // message
+                null,                 // callback
+                data.title,           // title
+                'Ok'                  // buttonName
+            );
+        });
+    }
+};
 
 function TimerStatusChange(objText) {
     var stringUri = "http://bahiatransporte.com.ar/turnos/index.php?id=" + $("#slcSucursal").val();

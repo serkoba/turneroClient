@@ -28,11 +28,9 @@
   <plugin name="cordova-plugin-statusbar" source="npm"/>
   <plugin name="cordova-plugin-vibration" source="npm"/>
   <plugin name="cordova-plugin-whitelist" source="npm"/>
-  <gap:plugin  name="phonegap-plugin-push" source="npm" >
-    <params>
-      <param name="SENDER_ID" value="60224550722" />
-    </params>
-  </gap:plugin>
+  <plugin name="phonegap-plugin-push" source="npm" spec="~1.8.0">
+    <variable name="SENDER_ID" value="60224550722" />
+  </plugin>
   <icon src="icon.png"/>
   <platform name="android">
     <icon src="www/res/icon/android/Sapem.png" density="ldpi"/>

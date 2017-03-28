@@ -23,7 +23,6 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" src="css/bootstrap.min.css" type="text/css" />
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/PushNotification.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -78,58 +77,10 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-        //var deviceID = device.uuid;
-
-      
-        // Push
-    
-            var push = PushNotification.init({
-                "android": {
-                    "senderID": "60224550722"
-                },
-                "browser": {
-                    pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-                },
-                "ios": {
-                    "sound": true,
-                    "vibration": true,
-                    "badge": true
-                },
-                "windows": {}
-            });
-
-            push.on('registration', function (data) {
-                device_gcm = data.registrationId;
-                // LISTO! este dato es el que hay que mandar a la DB
-
-                $("#textTurnero").text(device_gcm);
-            });
-
-            push.on('notification', function (data) {
-                var llego = true;
-            });
-            /* No se llega a ejectura*/
-            //alert(JSON.stringify(data));
-            /*var datos = {
-              'id':data.additionalData.id,
-              'titulo':data.title,
-              'copete':data.additionalData.copete,
-              'mensaje':data.additionalData.mensaje,
-              'link':data.additionalData.link,
-              'color':data.additionalData.color,
-              'fecha':data.additionalData.fecha
-            }
-            
-            localStorage.setItem(data.additionalData.id, JSON.stringify(datos));
-            document.location.href = 'mensajes.html?id='+data.additionalData.id;
-            */
-        
-
-    </script>
+   
 
     <script type="text/javascript">
-     //   app.initialize();
+        app.initialize();
 
      
 
