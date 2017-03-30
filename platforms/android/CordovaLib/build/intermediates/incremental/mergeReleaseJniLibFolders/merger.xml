@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/srv/http/ionic/turneroClient/platforms/android/CordovaLib/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/srv/http/ionic/turneroClient/platforms/android/CordovaLib/src/release/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\proyecto\Sapem\turneroClient\turneroClient\platforms\android\CordovaLib\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="C:\proyecto\Sapem\turneroClient\turneroClient\platforms\android\CordovaLib\src\release\jniLibs"/></dataSet></merger>
