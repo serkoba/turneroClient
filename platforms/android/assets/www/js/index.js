@@ -25,6 +25,7 @@ var app = {
     },
     onDeviceReady: function() {
         console.log("___onDeviceReady___");
+
         var push = PushNotification.init({
                 "android": {
                     "senderID": "60224550722"
