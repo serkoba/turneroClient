@@ -37,15 +37,15 @@
                 
                 <h3>Seleccione una sede:</h3>
                   <select id="slcSucursal" class="form-control">
-                    <option value="1">Bahía Transporte Sapem</option>
-                    <option value="1">Bahía Transporte Sapem</option>
+                      <option value="1">FISA</option>
+                    <!--<option value="1">Bahía Transporte Sapem</option>
                     <option value="2">Hall del palacio comunal</option>
                     <option value="3">Mercado Municipal</option>
                     <option value="4">Delegación Municipal de Ingeniero White</option>
                     <option value="5">Biblioteca Popular José Hernández de General Cerri</option>
                     <option value="6">Terminal de ómnibus</option>
                     <option value="7">Puesto en peatonal Drago esquina Colón</option>
-                    <option value="8">Sociedad de Fomento B° Victoria Sinclair</option>
+                    <option value="8">Sociedad de Fomento B° Victoria Sinclair</option>-->
                 </select>
                 <br>
                 <h3>Ingrese su turno:</h3>
@@ -68,36 +68,7 @@
     <script type="text/javascript">
         app.initialize();
         LoadData();
-      
-        $("#slcSucursal").change(function () {
-            ChangeNumberTurn($("#textTurnero"));
-
-
-        });
-
-        $("#btnSetNumber").click(function () {
-            var deviceID = device.uuid;
-            var stringUri = "  http://bahiatransporte.com.ar/turnos/usuarios.php?gcm_id=" + $("#gcm_id").text() + "&id_punto_de_venta=" + $("#slcSucursal").val() + "&turno=" + $("#txtNumber").val() + "&deviceID="+deviceID;
-            console.log('enviando solicitud...');
-            console.log(stringUri);
-            $("#btnSetNumber").text("Enviando turno...");
-            $.getJSON(stringUri, function (data) {
-                $.each(data, function (i, item) {
-                    
-                    if (item == '-1') {
-                        $("#btnSetNumber").text("Turno guardado.");
-                    }
-                })
-
-            })
-            .fail(function (jqXHR, textStatus, errorThrown) { console.log(errorThrown); })
-            .always(function () {
-                localStorage.setItem("turno", $("#txtNumber").val());
-                localStorage.setItem("sucursal", $("#slcSucursal").val());
-                
-
-            });
-        });
+        setButtonClick();
      
     </script>
 </body>

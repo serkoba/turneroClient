@@ -66,7 +66,41 @@ function LoadData()
     var sucursal = localStorage.getItem('sucursal') || '<empty>';
     $("#slcSucursal").val(sucursal);
     $("#txtNumber").val(turno);
+    ChangeNumberTurn($("#textTurnero"));
 }
+function setButtonClick()
+{
+    $("#slcSucursal").change(function () {
+        ChangeNumberTurn($("#textTurnero"));
+
+
+    });
+
+    $("#btnSetNumber").click(function () {
+        var deviceID = device.uuid;
+        var stringUri = "  http://bahiatransporte.com.ar/turnos/usuarios.php?gcm_id=" + $("#gcm_id").text() + "&id_punto_de_venta=" + $("#slcSucursal").val() + "&turno=" + $("#txtNumber").val() + "&deviceID=" + deviceID;
+        console.log('enviando solicitud...');
+        console.log(stringUri);
+        $("#btnSetNumber").text("Enviando turno...");
+        $.getJSON(stringUri, function (data) {
+            $.each(data, function (i, item) {
+
+                if (item == '-1') {
+                    $("#btnSetNumber").text("Turno guardado.");
+                }
+            })
+
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) { console.log(errorThrown); })
+        .always(function () {
+            localStorage.setItem("turno", $("#txtNumber").val());
+            localStorage.setItem("sucursal", $("#slcSucursal").val());
+
+
+        });
+    });
+}
+
 function TimerStatusChange(objText) {
     var stringUri = "http://bahiatransporte.com.ar/turnos/index.php?id=" + $("#slcSucursal").val();
     $.getJSON(stringUri, function (data) {
